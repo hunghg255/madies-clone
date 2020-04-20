@@ -1,0 +1,59 @@
+@import '../font/stylesheet.css';
+
+:root {
+    --primary-color: #fab015;
+    --gray-dark: #424242;
+    --gray-light: #f0f2f5;
+    --red: #ff0000;
+    --blue-dark: #1876f2;
+    --blue-white: #15b9fa;
+    --white: white;
+    --black: black;
+    --primary-font: "NB International";
+    --secondary-font: "Belwe Lt BT";
+    --wrapper: 192rem;
+    --container: 73.4vw;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-weight: 300;
+    color: var(--gray-dark);
+    background-color: var(--white);
+    line-height: 1.4;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.wrapper {
+    max-width: var(--wrapper);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    max-width: var(--container);
+    margin-left: auto;
+    margin-right: auto;
+}
