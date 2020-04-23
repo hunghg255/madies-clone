@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 4020);
 
 
-    const elementParallax = document.querySelectorAll('[data-parallax]');
     const animateScroll = document.querySelectorAll('[data-animate-scroll]');
 
     const allElementAnimateScroll = document.querySelectorAll('[data-trigger-scroll]');
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const itemMask = document.querySelectorAll('.item__mask');
     const sec2ListImg = document.querySelector('.list__item');
     const section2 = document.querySelector('.section2');
-    const parallaxElement = document.querySelectorAll('[data-parallax]');
 
     // slide
     const btnPrev = document.querySelector('.control__slide.prev');
@@ -34,27 +32,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const slideRightTitle = document.querySelector('.slide__title');
 
     let time = 0;
-    let scrollTop = 0, tweened = 0;
     const update = () => {
         window.requestAnimationFrame(update);
 
-        elementParallax.forEach((e, i) => {
-            if (e.getBoundingClientRect().y <= window.innerHeight) {
-                if (e.dataset.parallaxStart) return;
-                e.setAttribute('data-parallax-start', window.scrollY);
-            } else {
-                e.removeAttribute('data-parallax-start');
-            }
-        });
+        // elementParallax.forEach((e, i) => {
+        //     if (e.getBoundingClientRect().y <= window.innerHeight) {
+        //         if (e.dataset.parallaxStart) return;
+        //         e.setAttribute('data-parallax-start', window.scrollY);
+        //     } else {
+        //         e.removeAttribute('data-parallax-start');
+        //     }
+        // });
         
-        parallaxElement.forEach((e, i) => {
-            if (e.getBoundingClientRect().y <= window.innerHeight) {
-                if (Math.abs(scrollTop - tweened) > 0) {
-                    const left =  Math.floor(tweened += 0.1 * (scrollTop - tweened));
-                    e.style.transform = `translate3d(0, -${left * +e.dataset.parallax}px, 0)`;
-                }   
-            }
-        });
+        // parallaxElement.forEach((e, i) => {
+        //     if (e.getBoundingClientRect().y <= window.innerHeight) {
+        //         if (Math.abs(scrollTop - tweened) > 0) {
+        //             const left =  Math.floor(tweened += 0.1 * (scrollTop - tweened));
+        //             e.style.transform = `translate3d(0, -${left * +e.dataset.parallax}px, 0)`;
+        //         }   
+        //     }
+        // });
         
         allElementAnimateScroll.forEach(e => {
             e.style.display = 'inline-block'
@@ -115,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     update();
-    window.addEventListener('scroll', () => scrollTop = window.scrollY);
 
     btnNext.addEventListener('click', function() {
         const slideLeftShow = slideLeft.querySelector('.show');
